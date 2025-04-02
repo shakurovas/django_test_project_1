@@ -38,3 +38,17 @@ class Category(models.Model):
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
         ordering = ['id']
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100, db_index=True, verbose_name="Имя")
+    email = models.EmailField(max_length=255, db_index=True, verbose_name="Email")
+    text = models.CharField(max_length=3000, db_index=True, verbose_name="Текст")
+
+    # def __str__(self):
+    #     return self.text
+
+    class Meta:  # вложенный класс, использующийся админ-панелью для отображения модели в том или ином виде
+        verbose_name = "Обратная связь"
+        verbose_name_plural = "Обратная связь"
+        ordering = ['id']
